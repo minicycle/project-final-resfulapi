@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const carRouter = require('./routes/cars')
 const recRouter = require('./routes/record')
 const usersRouter = require('./routes/users')
-
+const indexRouter = require('./routes/index')
 const config = require('./config/index')
 const passport = require('passport')
 
@@ -31,6 +31,7 @@ app.use(passport.initialize())
 app.use('/car',carRouter);
 app.use('/user', usersRouter);
 app.use('/record',recRouter);
+app.use('/',indexRouter);
 
 app.use(errorHandler)
 module.exports = app;
