@@ -10,9 +10,9 @@ router.get('/', [passportJWT.isLogin,checkAdmin.isAdmin],recordController.index)
 //insert check admin
 router.post('/',[passportJWT.isLogin,checkAdmin.isAdmin,
     body("car").not().isEmpty().withMessage("กรุณากรอกรหัสรถยนต์")
-    .isLength({min:24,max:24}).withMessage("รหัสผ่านต้องมีค่า 24 ตัวอักษรเท่านั้น"),
+    .isLength({min:24,max:24}).withMessage("รหัสต้องมีค่า 24 ตัวอักษรเท่านั้น"),
     body("user").not().isEmpty().withMessage("กรุณากรอกรหัสผู้ซื้อ")
-    .isLength({min:24,max:24}).withMessage("รหัสผ่านต้องมีค่า 24 ตัวอักษรเท่านั้น"),
+    .isLength({min:24,max:24}).withMessage("รหัสต้องมีค่า 24 ตัวอักษรเท่านั้น"),
     
     ], recordController.insert);
 
